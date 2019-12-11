@@ -1,4 +1,6 @@
-Welcome to the Stack Showdown code challenge. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Pinkaloo Stack Showdown code challenge. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This project uses Redux (https://redux.js.org) to manage the application state. The applicable reducers, actions, and selectors can be found in `src/modules/index.js`.
 
 ## Rules
 
