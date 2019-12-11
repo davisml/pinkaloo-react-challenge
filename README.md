@@ -2,7 +2,7 @@ Welcome to the Stack Showdown code challenge. This project was bootstrapped with
 
 ## Rules
 
-The file src/modules/mock_data.json itself should not be modified. Consider this to be immutable data coming from an API.
+The file `src/modules/mock_data.json` itself should not be modified. Consider this to be immutable data coming from an API.
 
 ## Tasks
 
