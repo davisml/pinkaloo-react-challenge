@@ -36,7 +36,7 @@ The file `src/modules/mock_data.json` itself should not be modified. Consider th
 - [ ] Resolve any generated warnings from Webpack & React that are displayed in the browser console
 
 ## Extras
-- [ ] Optimize redux data selectors (using memoization or restructuring state?)
+- [ ] Optimize data lookup (e.g memoize selectors or restructure redux state)
 - [ ] Add your own feature to Stack Showdown!
 
 ## Available Scripts
