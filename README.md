@@ -7,11 +7,20 @@ The file src/modules/mock_data.json itself should not be modified. Consider this
 ## Tasks
 
 - [x] Run the app using `yarn start`
-- [ ] Show the total dollar amount of contributions in CampaignInfo
-- [ ] Update the progress bar in CampaignInfo to show goal progress
-- [ ] Display the associated user avatar & formatted name (join first_name & last_name) for each contribution
-- [ ] Create and export an `addContribution` action in modules that accepts `amount` and `campaignId` as parameters
-- [ ] Handle the `addContribution` action in redux and generate a transaction using the `amount` and `campaignId`. `id` should be auto-incremented using `(transactions.length + 1)`, `date` should be the current datetime JSON formatted, `userId` should be derived from `session.user.id`.
+- [ ] Replace placeholder values in `src/components/CampaignDetails.js`
+	- Display total dollar amount of contributions for the campaign
+	- Provide the campaign's goal progress to `<ProgressBar />`
+- [ ] Replace placeholder values in `src/components/CampaignContributions.js`
+	- Display the associated user avatar
+	- Display the associated user name. Show both `first_name` and `last_name` if available
+- [ ] Sort campaign contributions by date. Newest contributions should display at the top
+- [ ] Add the ability to donate to the selected campaign using the form found at `src/components/DonateForm`
+	- Create an addContribution action in `src/modules/index.js` that accepts accepts `amount` and `campaignId` as parameters
+	- Handle the `addContribution` action in redux and generate a transaction using the `amount` and `campaignId`. `id` should be auto-incremented using `(transactions.length + 1)`, `date` should be the current datetime JSON formatted, `userId` should be derived from `session.user.id`.
+	- Decrease the user's available balance after donating
+	- Validate before submitting the donate form to ensure the user has enough funds available
+- [ ] Prevent `ProgressBar` component from visually overflowing when `progress > 1.0`
+
 ```js
 {
     "id": /* Auto-generate */,

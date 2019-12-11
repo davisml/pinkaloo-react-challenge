@@ -13,13 +13,12 @@ function App({ campaigns, session, selectCampaignById }) {
     selectCampaignById(campaignId, event)
 
   const { user: { balance }, selectedCampaignId } = session
-
-  // console.info("Selected", selectedCampaignId)
-  const renderCampaign = campaign => {
+  
+  const renderCampaignItem = campaign => {
     const { id } = campaign
 
     const key = `campaign-${ id }`
-    const active = (id == selectedCampaignId)
+    const active = (id === selectedCampaignId)
     const onClick = campaignClickHandler(id)
 
     const itemProps = {
@@ -38,7 +37,7 @@ function App({ campaigns, session, selectCampaignById }) {
         <UserBalance balance={ balance } />
       </div>
       <div className="Campaigns">
-        { campaigns.map(renderCampaign) }
+        { campaigns.map(renderCampaignItem) }
       </div>
       <CampaignInfo />
     </div>
