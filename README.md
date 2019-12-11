@@ -39,6 +39,16 @@ The file `src/modules/mock_data.json` itself should not be modified. Consider th
 - [ ] Optimize data lookup (e.g memoize selectors or restructure redux state)
 - [ ] Add your own feature to Stack Showdown!
 
+## Submitting
+
+Via GitHub:
+
+- Create a public repository, push your changes and email the link to `mark@pinkaloo.com`
+
+Via Email:
+
+- Remove the `node_modules` directory and send a `.zip` of the project directory to `mark@pinkaloo.com`
+
 ## Available Scripts
 
 In the project directory, you can run:
