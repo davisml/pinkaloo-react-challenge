@@ -18,7 +18,7 @@ The file `src/modules/mock_data.json` itself should not be modified. Consider th
 	- Create an addContribution function in `modules` that accepts accepts `amount` and `campaignId` as input parameters and returns a redux action
 	- Handle the created redux action in the app reducer and generate a contribution using the `amount` and `campaignId`. `id` should be auto-incremented using `(contributions.length + 1)`, `date` should be the current datetime JSON formatted, `userId` should be derived from `session.user.id`.
 	- Example contribution (all attributes required):
-	``js
+	``json
 	{
         "id": 49,
         "amount": 12.51,
