@@ -1,0 +1,97 @@
+{
+	"selectedCampaignId": "nodejs",
+	"campaigns": [
+		{
+			"id": "mysql",
+			"name": "MySQL",
+			"image": "/logos/MySQL.jpg",
+			"goal": 250,
+			"active": true
+		},
+		{
+			"id": "elastic",
+			"name": "Elasticsearch",
+			"image": "/logos/Elastic.png",
+			"goal": 500,
+			"active": true
+		},
+		{
+			"id": "nodejs",
+			"name": "Node.js",
+			"image": "/logos/NodeJS.png",
+			"goal": 325,
+			"active": true
+		},
+		{
+			"id": "go",
+			"name": "Go",
+			"image": "/logos/Go.png",
+			"goal": 400,
+			"active": false
+		},
+		{
+			"id": "python",
+			"name": "Python",
+			"image": "/logos/Python.png",
+			"goal": 100,
+			"active": true
+		}
+	],
+	"contributions": [
+		{
+			"id": 1,
+			"amount": 70,
+			"campaignId": "mysql",
+			"date": "2019-12-11T00:10:06.452Z"
+		},
+		{
+			"id": 2,
+			"amount": 40,
+			"campaignId": "python",
+			"date": "2019-12-10T00:10:06.452Z"
+		},
+		{
+			"id": 3,
+			"amount": 45,
+			"campaignId": "go",
+			"date": "2019-12-08T00:10:06.452Z"
+		},
+		{
+			"id": 4,
+			"amount": 100,
+			"campaignId": "nodejs",
+			"date": "2019-12-05T00:10:06.452Z"
+		},
+		{
+			"id": 5,
+			"amount": 40,
+			"campaignId": "elastic",
+			"date": "2019-12-02T00:10:06.452Z"
+		},
+		{
+			"id": 6,
+			"amount": 100,
+			"campaignId": "nodejs",
+			"date": "2019-12-05T00:10:06.452Z"
+		}
+	],
+	"users": [
+		{
+			"id": "gideon",
+			"image": "https://static.pinkaloo.com/media/cache/40/a5/40a5c1b77665b575d6ac0bd0f3481f4e.png"
+		},
+		{
+			"id": "dan",
+			"image": ""
+		},
+		{
+			"id": "apaz",
+			"image": ""
+		},
+		{
+			"id": "dpang",
+			"image": ""
+		}
+	],
+	"balance": 500
+}
