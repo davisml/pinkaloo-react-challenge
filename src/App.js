@@ -2,21 +2,24 @@ import './App.css'
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { selectCampaignById } from './modules'
+import { selectCampaignById, getSession, getCampaigns } from './modules'
 import CampaignItem from './components/CampaignItem'
 import CampaignInfo from './components/CampaignInfo'
 import UserBalance from './components/UserBalance'
 
-function App({ campaigns, balance, selectedCampaignId, selectCampaignById }) {
+function App({ campaigns, session, selectCampaignById }) {
   // Generate component click handler for campaignId
   const campaignClickHandler = campaignId => event =>
     selectCampaignById(campaignId, event)
 
+  const { user: { balance }, selectedCampaignId } = session
+
+  // console.info("Selected", selectedCampaignId)
   const renderCampaign = campaign => {
     const { id } = campaign
 
     const key = `campaign-${ id }`
-    const active = (id === selectedCampaignId)
+    const active = (id == selectedCampaignId)
     const onClick = campaignClickHandler(id)
 
     const itemProps = {
@@ -43,7 +46,10 @@ function App({ campaigns, balance, selectedCampaignId, selectCampaignById }) {
 }
 
 const mapStateToProps = function(state) {
-  return state.app
+  return {
+    campaigns: getCampaigns(state),
+    session: getSession(state)
+  }
 }
 
 const mapDispatchToProps = {

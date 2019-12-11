@@ -2,14 +2,21 @@ import './CampaignInfo.css'
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { getCampaignById } from '../modules'
+import { getCampaignById, getSelectedCampaignId, getCampaignContributions } from '../modules'
 import ProgressBar from './ProgressBar'
 import Numeral from 'numeral'
+import DonateForm from './DonateForm'
 
 // const renderContribution = ()
 
-function renderContribution(contribution) {
-  const { user, amount } = contribution
+function renderContribution(contribution, index) {
+  const {
+    user = {
+      name: 'Placeholder Name',
+      image: 'https://static.pinkaloo.com/static/img/profile.png'
+    },
+    amount
+  } = contribution
 
   return <div className="ContributionInfo">
     <img className="UserImage" src={ user.image } />
@@ -20,32 +27,10 @@ function renderContribution(contribution) {
   </div>
 }
 
-function CampaignInfo({ campaign }) {
+function CampaignInfo({ campaign, contributions }) {
   const totalRaised = 50
 
-  const contributions = [
-    {
-      amount: 25,
-      user: {
-        image: 'https://i.pravatar.cc/100?img=15',
-        name: 'Placeholder User'
-      }
-    },
-    {
-      amount: 5,
-      user: {
-        image: 'https://i.pravatar.cc/100?img=16',
-        name: 'Placeholder User'
-      }
-    },
-    {
-      amount: 20,
-      user: {
-        image: 'https://i.pravatar.cc/100?img=17',
-        name: 'Placeholder User'
-      }
-    }
-  ]
+  console.info("Contributions", contributions)
 
   return (
     <div className="CampaignInfo">
@@ -60,22 +45,17 @@ function CampaignInfo({ campaign }) {
       <div className="CampaignInfo-contributions">
         { contributions.map(renderContribution) }
       </div>
-      <div className="CampaignInfo-donate">
-        <h2>Donate to { campaign.name }</h2>
-        <input className="Donate-amount" placeholder="Amount" />
-        <input className="Donate-message" placeholder="Message" />
-        <button className="Donate-button">Donate</button>
-      </div>
+      <DonateForm campaign={ campaign } />
     </div>
   )
 }
 
 const mapStateToProps = function(state) {
-  const { selectedCampaignId } = state.app
-
+  const selectedCampaignId = getSelectedCampaignId(state)
   const campaign = getCampaignById(state, selectedCampaignId )
+  const contributions = getCampaignContributions(state, selectedCampaignId)
 
-  return { campaign }
+  return { campaign, contributions }
 }
 
 const mapDispatchToProps = {

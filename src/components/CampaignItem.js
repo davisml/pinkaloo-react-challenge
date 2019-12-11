@@ -8,7 +8,7 @@ import { getCampaignContributionsTotal } from '../modules'
 function CampaignItem({ campaign, totalRaised, active, onClick }) {
   const className = ClassNames('Campaign', { active })
   const divProps = { className, onClick }
-
+  
   return <div {...divProps}>
     <div className="Campaign-logo">
       <div className="Campaign-image" style={{backgroundImage: `url('${ campaign.image }')`}} />

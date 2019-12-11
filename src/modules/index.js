@@ -1,21 +1,18 @@
-import sampleData from './sampleData'
+import sampleData from './mock_data'
 
 const initialState = { ...sampleData }
 
-export const MERGE_STATE = 'app/MERGE_STATE'
+export const MERGE_SESSION = 'app/MERGE_SESSION'
 
 //- Redux
 export const app = (state = initialState, action) => {
-	console.log(action)
-
 	const { type, payload } = action
 
 	switch (type) {
-		case MERGE_STATE: {
-			return {
-				...state,
-				...payload
-			}
+		case MERGE_SESSION: {
+			const session = { ...state.session, ...payload }
+
+			return { ...state, session }
 		}
 
 		default: {
@@ -28,19 +25,30 @@ export const app = (state = initialState, action) => {
 
 export const selectCampaignById = campaignId => {
 	return {
-		type: MERGE_STATE,
+		type: MERGE_SESSION,
 		payload: { selectedCampaignId: campaignId }
 	}
 }
 
 //- Selectors
+
+// Session
+export const getSession = state => {
+	return state.app.session
+}
+
+// Contributions
 export const getContributions = state => {
-	// console.info("State", state)
 	return state.app.contributions
 }
 
+// Campaigns
 export const getCampaigns = state => {
 	return state.app.campaigns
+}
+
+export const getSelectedCampaignId = state => {
+	return state.app.session.selectedCampaignId
 }
 
 export const getCampaignById = (state, campaignId) => {
@@ -50,14 +58,13 @@ export const getCampaignById = (state, campaignId) => {
 }
 
 export const getCampaignContributions = (state, campaignId) => {
-	console.info("State", state.app)
 	const contributions = getContributions(state)
-
+	
 	return contributions.reduce((array, contribution) => {
 		if (contribution.campaignId !== campaignId) {
 			return array
 		}
-
+		
 		return [...array, contribution]
 	}, [])
 }
