@@ -14,39 +14,30 @@ The file `src/modules/mock_data.json` itself should not be modified. Consider th
 	- Display the associated user avatar
 	- Display the associated user name. Show both `first_name` and `last_name` if available
 - [ ] Sort campaign contributions by date. Newest contributions should display at the top
-- [ ] Add the ability to donate to the selected campaign using the `DonateForm` component
+- [ ] Add the ability to contribute to the selected campaign using the `DonateForm` component
 	- Create an addContribution function in `modules` that accepts accepts `amount` and `campaignId` as input parameters and returns a redux action
-	- Handle the created redux action in the app reducer and generate a contribution using the `amount` and `campaignId`. `id` should be auto-incremented using `(contributions.length + 1)`, `date` should be the current datetime JSON formatted, `userId` should be derived from `session.user.id`.
-	- Example contribution (all attributes required):
-	``
-	{
-        "id": 49,
-        "amount": 12.51,
-        "campaignId": "elastic",
-        "date": "2019-08-15T03:00:00.000Z",
-        "userId": 17
-    }
-    ``
-	- Decrease the user's available balance after donating
-	- Show validation error in the donate form if user does not have the required funds to donate
+	- Handle the created redux action in the app reducer and generate a full contribution using the `amount` and `campaignId`.
+		- Example Contribution (all attributes required):
+		``
+		{
+	        "id": 49,
+	        "amount": 12.51,
+	        "campaignId": "elastic",
+	        "date": "2019-08-15T03:00:00.000Z",
+	        "userId": 17
+	    }
+	    ``
+	    - `id` should be auto-incremented using `(contributions.length + 1)`, `date` should be the current datetime JSON formatted, `userId` should be derived from `session.user.id`.
+	    - The newly generated contribution should be appended to `state.transactions` in the action reducer
+	- Decrease the user's available balance after successfully contributing
+	- Show validation error in `DonateForm` componeent if user does not have the required funds to contribute
 - [ ] Prevent `ProgressBar` component from visually overflowing when `progress > 1.0`
 - [ ] Sort campaigns in `CampaignNavigation` by goal progress (total contributions / goal)
 - [ ] Resolve any generated warnings from Webpack & React that are displayed in the browser console
 
 ## Extras
 - [ ] Optimize redux data selectors (using memoization or restructuring state?)
-- [ ] Add your own feature to Stack Showdown
-
-```js
-{
-    "id": /* Auto-generate */,
-    "amount": "NUMBER",
-    "campaignId": "python",
-    "date": "2019-02-27T04:00:00.000Z",
-    "userId": 12
-}
-```
-- [ ] Wire the donate form to 
+- [ ] Add your own feature to Stack Showdown!
 
 ## Available Scripts
 
