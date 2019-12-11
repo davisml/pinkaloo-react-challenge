@@ -30,7 +30,7 @@ The file `src/modules/mock_data.json` itself should not be modified. Consider th
 	    - `id` should be auto-incremented using `(contributions.length + 1)`, `date` should be the current datetime JSON formatted, `userId` should be derived from `session.user.id`.
 	    - The newly generated contribution should be appended to `state.transactions` in the action reducer
 	- Decrease the user's available balance after successfully contributing
-	- Show validation error in `DonateForm` componeent if user does not have the required funds to contribute
+	- Show validation error in `DonateForm` component if user does not have the required funds to contribute
 - [ ] Prevent `ProgressBar` component from visually overflowing when `progress > 1.0`
 - [ ] Sort campaigns in `CampaignNavigation` by goal progress (total contributions / goal)
 - [ ] Resolve any generated warnings from Webpack & React that are displayed in the browser console
