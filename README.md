@@ -7,18 +7,28 @@ The file `src/modules/mock_data.json` itself should not be modified. Consider th
 ## Tasks
 
 - [x] Run the app using `yarn start`
-- [ ] Replace placeholder values in `src/components/CampaignDetails.js`
+- [ ] Replace placeholder values in `CampaignDetails` component
 	- Display total dollar amount of contributions for the campaign
 	- Provide the campaign's goal progress to `ProgressBar `
-- [ ] Replace placeholder values in `src/components/CampaignContributions.js`
+- [ ] Replace placeholder values in `CampaignContributions` component
 	- Display the associated user avatar
 	- Display the associated user name. Show both `first_name` and `last_name` if available
 - [ ] Sort campaign contributions by date. Newest contributions should display at the top
-- [ ] Add the ability to donate to the selected campaign using the form found at `src/components/DonateForm`
-	- Create an addContribution action in `src/modules/index.js` that accepts accepts `amount` and `campaignId` as parameters
-	- Handle the `addContribution` action in redux and generate a contribution using the `amount` and `campaignId`. `id` should be auto-incremented using `(contributions.length + 1)`, `date` should be the current datetime JSON formatted, `userId` should be derived from `session.user.id`.
+- [ ] Add the ability to donate to the selected campaign using the `DonateForm` component
+	- Create an addContribution function in `modules` that accepts accepts `amount` and `campaignId` as input parameters and returns a redux action
+	- Handle the created redux action in the app reducer and generate a contribution using the `amount` and `campaignId`. `id` should be auto-incremented using `(contributions.length + 1)`, `date` should be the current datetime JSON formatted, `userId` should be derived from `session.user.id`.
+	- Example contribution (all attributes required):
+	``js
+	{
+        "id": 49,
+        "amount": 12.51,
+        "campaignId": "elastic",
+        "date": "2019-08-15T03:00:00.000Z",
+        "userId": 17
+    }
+    ``
 	- Decrease the user's available balance after donating
-	- Validate before submitting the donate form to ensure the user has enough funds available
+	- Show validation error in the donate form if user does not have the required funds to donate
 - [ ] Prevent `ProgressBar` component from visually overflowing when `progress > 1.0`
 - [ ] Sort campaigns in `CampaignNavigation` by goal progress (total contributions / goal)
 - [ ] Resolve any generated warnings from Webpack & React that are displayed in the browser console
